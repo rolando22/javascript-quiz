@@ -1,5 +1,5 @@
 import { Container } from '@mui/material';
-import { Header, Start } from './components';
+import { Game, Header, Start } from './components';
 import './App.css';
 import { useQuestionsStore } from './store/questions';
 
@@ -14,7 +14,7 @@ export function App() {
 			<main>
 				<Container maxWidth='sm'>
 					{questions.length === 0 && <Start />}
-					{questions.length > 0 && <h1>Juego</h1>}
+					{questions.length > 0 && <Game />}
 				</Container>
 			</main>
 		</>
