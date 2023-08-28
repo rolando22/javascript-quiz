@@ -6,8 +6,6 @@ import './App.css';
 export function App() {
 	const questions = useQuestionsStore(state => state.questions);
 
-	console.log(questions);
-
 	return (
 		<>
 			<Header />
