@@ -1,7 +1,7 @@
 import { Container } from '@mui/material';
-import { Game, Header, Start } from './components';
-import './App.css';
+import { Footer, Game, Header, Start } from './components';
 import { useQuestionsStore } from './store/questions';
+import './App.css';
 
 export function App() {
 	const questions = useQuestionsStore(state => state.questions);
@@ -17,6 +17,7 @@ export function App() {
 					{questions.length > 0 && <Game />}
 				</Container>
 			</main>
+			<Footer />
 		</>
 	);
 }

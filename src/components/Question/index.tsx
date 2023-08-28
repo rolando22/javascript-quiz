@@ -23,7 +23,7 @@ export function Question({ info }: Props) {
     const handlerOnClickSelectAnswer = (answerId: number) => () => selectAnswer(info.id, answerId);
 
     return (
-        <Card variant='outlined' sx={{ bgcolor: '#222', p: 2, textAlign: 'left', marginTop: 4 }}>
+        <Card variant='outlined' sx={{ bgcolor: '#222', p: 2, textAlign: 'left', marginTop: 4, height: '470px', width: '100%', display: 'grid', alignContent: 'center' }}>
             <Typography variant='h5'>
                 {info.question}
             </Typography>

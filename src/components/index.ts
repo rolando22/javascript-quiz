@@ -1,3 +1,4 @@
+export { Footer } from './Footer';
 export { Game } from './Game';
 export { Header } from './Header';
 export { JavaScriptLogo } from './Logos';

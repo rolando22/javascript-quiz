@@ -6,6 +6,8 @@ export interface QuestionsState {
     currentQuestion: number
     fetchQuestions: (limit: number) => Promise<void>
     selectAnswer: (questionId: number, answerIndex: number) => void
+    goNextQuestion: () => void
+    goPreviousQuestion: () => void
 }
 
 export const useQuestionsStore = create<QuestionsState>((set, get) => ({
@@ -15,7 +17,7 @@ export const useQuestionsStore = create<QuestionsState>((set, get) => ({
         const res = await fetch('http://localhost:5173/questions.json');
         const data = await res.json();
         const questions = data.sort(() => Math.random() - 0.5).slice(0, limit);
-        set((state) => state.questions = questions );
+        set(state => state.questions = questions);
     },
     selectAnswer: (questionId: number, answerIndex: number) => {
         const { questions } = get();
@@ -29,5 +31,15 @@ export const useQuestionsStore = create<QuestionsState>((set, get) => ({
             userSelectedAnswer: answerIndex,
         };
         set({ questions: newQuestions });
+    },
+    goNextQuestion: () => {
+        const { currentQuestion, questions } = get();
+        const nextQuestion = currentQuestion + 1;
+        if (nextQuestion < questions.length) set({ currentQuestion: nextQuestion });
+    },
+    goPreviousQuestion: () => {
+        const { currentQuestion } = get();
+        const previousQuestion = currentQuestion - 1;
+        if (previousQuestion >= 0) set({ currentQuestion: previousQuestion });
     },
 }));
