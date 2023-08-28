@@ -5,7 +5,7 @@ export function Header() {
     return (
         <header>
             <Container maxWidth='sm'>
-                <Stack direction='row' gap={2} alignItems='center' justifyContent='center'>
+                <Stack direction={{ sm:'row', xs: 'column' }} gap={2} alignItems='center' justifyContent='center'>
                     <JavaScriptLogo />
                     <Typography variant='h2' component='h1'>
                         JavaScript Quiz
